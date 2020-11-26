@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CallTracker } from 'assert';
 import { Movie } from 'src/app/models/movie';
-import { reservationStatus } from '../../types/types';
+import { reservationStatus } from 'src/app/models/types';
 
 @Component({
   selector: 'app-seat-selector',

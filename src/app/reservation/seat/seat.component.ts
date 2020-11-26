@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { reservationStatus } from '../../types/types';
+import { reservationStatus } from 'src/app/models/types';
 
 @Component({
   selector: 'app-seat',
