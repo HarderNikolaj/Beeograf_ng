@@ -1,0 +1,9 @@
+<button [routerLink]="['/reservation', movie.id]" class="container border border-dark rounded bg-light movie-card m-0 p-0 overflow-auto">
+  <div class="row container-fluid img-container m-0 p-0">
+    <img class="rounded p-0" [src]="movie.imagePath">
+  </div>
+  <div class="row border container-fluid m-0 p-0">
+    <h4 class="container-fluid">{{movie.title}}</h4>
+    <p class="text-justify">Maybe we should like add some description to our movies? <br> Yeah. That would be the beezeness!</p>
+  </div>
+</button>

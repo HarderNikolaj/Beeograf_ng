@@ -1,0 +1,27 @@
+li{
+  list-style: none;
+}
+
+
+.float-r{
+  display: inline-table;
+}
+
+.seat-selector-outer{
+  height: 86vh;
+}
+
+.seatSelector{
+  background-image: url("/assets/images/redCarpet.jpg");
+  background-size: cover;
+
+}
+
+.seatsInRow{
+  width: 70%;
+  overflow-x: auto;
+}
+.center{
+  text-align: center;
+}
+

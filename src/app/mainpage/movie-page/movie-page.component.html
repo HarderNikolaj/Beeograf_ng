@@ -1,0 +1,20 @@
+<div class="container-fluid movie-page mt-4 bg-light rounded">
+  <div class="row container p-3">
+    <form [formGroup]="movieForm" (ngSubmit)="onSubmit(movieForm.value)">
+      <label>
+        Titel:
+        <input type="text" formControlName="title">
+      </label>
+      <label>
+        Genre:
+        <select>
+          <option  *ngFor="let genre of genres">
+            {{ genre }}
+          </option>
+        </select>
+      </label>
+      <button class="button btn btn-secondary ml-2" type="submit">Søg</button>
+    </form>
+  </div>
+  <app-movie  class="m-3 w-20 movie" *ngFor="let movie of movies" [movie]="movie"></app-movie>
+</div>

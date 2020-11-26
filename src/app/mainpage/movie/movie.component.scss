@@ -1,0 +1,16 @@
+.movie-card{
+  height: 30vh;
+  width: 20vw;
+  overflow: none;
+}
+
+.img-container{
+  height: 80%;
+}
+
+img{
+  object-fit: cover;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+}
