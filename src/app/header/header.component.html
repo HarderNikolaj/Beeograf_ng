@@ -8,12 +8,25 @@
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/mainpage']">Beeografen</a>
       </li>
-      <li *ngIf="loggedInUser" class="nav-item">
+      <li *ngIf="auth.isAuthenticated$" class="nav-item">
         <a class="nav-link" href="#">Min Bruger</a>
       </li>
-      <li *ngIf="loggedInUser" class="nav-item">
+      <li *ngIf="auth.isAuthenticated$" class="nav-item">
         <a class="nav-link" href="#">Mine Billetter</a>
       </li>
+      <ng-container *ngIf="auth.isAuthenticated$ | async; else loggedOut">
+        <li class="nav-item">
+          <a class="nav-link" (click)="auth.logout({ returnTo: document.location.origin })">
+            Log out
+          </a>
+        </li>
+      </ng-container>
+      <ng-template #loggedOut>
+        <li class="nav-item">
+          <a class="nav-link" (click)="auth.loginWithRedirect()">Log in</a>
+        </li>
+      </ng-template>
+
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         </div>
     </ul>

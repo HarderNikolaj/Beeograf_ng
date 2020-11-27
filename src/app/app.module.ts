@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { MainpageModule } from './mainpage/mainpage.module';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
+import { AuthModule } from '@auth0/auth0-angular';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,11 @@ import { FormsModule } from '@angular/forms';
     ReservationModule,
     NgbModule,
     MainpageModule,
-    FormsModule
+    FormsModule,
+    AuthModule.forRoot({
+      domain: 'dev-02iexm3g.eu.auth0.com',
+      clientId: 'twZlY01w6BPrldPQd0VFyVI8m2lXJsNc'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

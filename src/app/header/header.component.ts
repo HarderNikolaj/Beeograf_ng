@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 import { Employee } from '../models/employee';
 import { User } from '../models/user';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +10,8 @@ import { User } from '../models/user';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  loggedInUser : User | Employee
 
-  constructor() { this.loggedInUser = new User() }
+  constructor(@Inject(DOCUMENT) public document: Document, public auth : AuthService) { }
 
   ngOnInit(): void {
   }
