@@ -9,6 +9,8 @@ import { MainpageModule } from './mainpage/mainpage.module';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
 import { AuthModule } from '@auth0/auth0-angular';
+import { MovieService } from './services/movie.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,10 @@ import { AuthModule } from '@auth0/auth0-angular';
     AuthModule.forRoot({
       domain: 'dev-02iexm3g.eu.auth0.com',
       clientId: 'twZlY01w6BPrldPQd0VFyVI8m2lXJsNc'
-    })
+    }),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
