@@ -1,0 +1,14 @@
+<div class="container-fluid mt-4 bg-light rounded user-page">
+  <div class="row">
+    <h1>HEJ</h1>
+
+    <form [formGroup]="userform" (ngSubmit)="submitUser()">
+      <label>Fornavn<input type="text" formControlName="given_name"></label>
+      <label>Efternavn<input type="text" formControlName="family_name"></label>
+      <label>Email<input type="email" formControlName="email"></label>
+      <button type="submit" [disabled]="!userform.valid">
+        Gem ændringer
+      </button>
+    </form>
+  </div>
+</div>

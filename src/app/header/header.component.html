@@ -9,7 +9,7 @@
         <a class="nav-link" [routerLink]="['/mainpage']">Beeografen</a>
       </li>
       <li *ngIf="auth.isAuthenticated$" class="nav-item">
-        <a class="nav-link" href="#">Min Bruger</a>
+        <a class="nav-link" [routerLink]="['/user']">Min Bruger</a>
       </li>
       <li *ngIf="auth.isAuthenticated$" class="nav-item">
         <a class="nav-link" href="#">Mine Billetter</a>
