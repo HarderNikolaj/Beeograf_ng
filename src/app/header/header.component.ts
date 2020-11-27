@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from '../models/employee';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-header',
@@ -6,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  loggedInUser : User | Employee
 
-  constructor() { }
+  constructor() { this.loggedInUser = new User() }
 
   ngOnInit(): void {
   }
