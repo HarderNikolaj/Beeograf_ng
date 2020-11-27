@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-movie',
@@ -13,6 +14,7 @@ export class MovieComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.movie.moviePoster = environment.moviePosters + this.movie.moviePoster;
   }
 
 }

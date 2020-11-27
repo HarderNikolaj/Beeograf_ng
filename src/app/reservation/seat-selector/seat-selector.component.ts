@@ -9,7 +9,7 @@ import { reservationStatus } from 'src/app/models/types';
   styleUrls: ['./seat-selector.component.scss']
 })
 export class SeatSelectorComponent implements OnInit {
-movie : Movie = { id: 1, title: "Anna er lav", genre: "Underholdning", imagePath: '/assets/images/beeIcon.png', details: "a bunch of text about the movie that makes people want to watch it like a lot really greate awesome stuff no i'm not drunk you're drunk"};
+movie : Movie;
 //#region rowsarray
   rows: { seat : number, taken : reservationStatus }[][] = [
     [

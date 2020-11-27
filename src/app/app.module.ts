@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { MainpageModule } from './mainpage/mainpage.module';
 import { HeaderComponent } from './header/header.component';
 import { FormsModule } from '@angular/forms';
+import { MovieService } from './services/movie.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { FormsModule } from '@angular/forms';
     ReservationModule,
     NgbModule,
     MainpageModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [ MovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
