@@ -7,7 +7,6 @@ import { MoviePageComponent } from './movie-page/movie-page.component';
 import { MovieComponent } from './movie/movie.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
 @NgModule({
   declarations: [MainpageComponent, MoviePageComponent, MovieComponent],
   imports: [
@@ -15,6 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MainpageRoutingModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    MovieComponent
   ]
 })
 export class MainpageModule { }

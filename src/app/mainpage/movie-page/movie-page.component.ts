@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { stringify } from 'querystring';
 import { Movie } from 'src/app/models/movie';
 import { MovieService } from 'src/app/services/movie.service';
 
@@ -11,18 +12,7 @@ import { MovieService } from 'src/app/services/movie.service';
 export class MoviePageComponent implements OnInit {
   movieForm: FormGroup;
   genres: string[] = [ 'Action', 'Natur', 'Et halvtreds karakterer langt navn (maksimum).....', 'måske skulle vi reducere maksimum?' ];
-  movies : Movie[] = [
-    { duration: {hours: 2,minutes: 30}, releaseDate: new Date('2020-06-06'),   id: 1, genre: 'whatever', title: "To Bee or not to Bee", moviePoster: "/assets/images/beeIcon.png" },
-    { duration: {hours: 2,minutes: 30}, releaseDate: new Date('2020-06-06'),   id: 1, genre: 'whatever', title: "To Bee to Bee", moviePoster: "/assets/images/beeIcon.png" },
-    { duration: {hours: 2,minutes: 30}, releaseDate: new Date('2020-06-06'),   id: 1, genre: 'whatever', title: "To Bee or not to Bee", moviePoster: "/assets/images/beeIcon.png" },
-    { duration: {hours: 2,minutes: 30}, releaseDate: new Date('2020-06-06'),   id: 1, genre: 'whatever', title: "To Bee to Bee", moviePoster: "/assets/images/beeIcon.png" },
-    { duration: {hours: 2,minutes: 30}, releaseDate: new Date('2020-06-06'),   id: 1, genre: 'whatever', title: "To Bee or not to Bee", moviePoster: "/assets/images/beeIcon.png" },
-    { duration: {hours: 2,minutes: 30}, releaseDate: new Date('2020-06-06'),   id: 1, genre: 'whatever', title: "To Bee to Bee", moviePoster: "/assets/images/beeIcon.png" },
-    { duration: {hours: 2,minutes: 30}, releaseDate: new Date('2020-06-06'),   id: 1, genre: 'whatever', title: "To Bee or not to Bee", moviePoster: "/assets/images/beeIcon.png" },
-    { duration: {hours: 2,minutes: 30}, releaseDate: new Date('2020-06-06'),   id: 1, genre: 'whatever', title: "To Bee to Bee", moviePoster: "/assets/images/beeIcon.png" },
-    { duration: {hours: 2,minutes: 30}, releaseDate: new Date('2020-06-06'),   id: 1, genre: 'whatever', title: "To Bee or not to Bee", moviePoster: "/assets/images/beeIcon.png" },
-    { duration: {hours: 2,minutes: 30}, releaseDate: new Date('2020-06-06'),   id: 1, genre: 'whatever', title: "To Bee to Bee", moviePoster: "/assets/images/beeIcon.png" },
-  ]
+  movies : Movie[] = [];
 
   constructor(private formBuilder: FormBuilder, private movieService: MovieService) {
     this.movieForm = this.formBuilder.group({
@@ -32,16 +22,38 @@ export class MoviePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.onChanges();
+    this.getMovies();
+  }
+
+  getMovies() : void{
     this.movieService.getMovies().subscribe(
       result => {
-        console.log(result);
-        this.movies = result
+        result.forEach(element => {
+          element.movie.genre = element.genre.name;
+          element.movie.releaseDate = new Date(element.movie.releaseDate.toString().split('T')[0]);
+          this.movies.push(element.movie);
+        });
       },
       error => console.log(error)
     );
   }
 
-  onSubmit(value: any){
-    console.log(value);
+  onChanges():void{
+    this.movieForm.valueChanges.subscribe((value: {genre :string, title: string}) => {
+      (value.title ?  value.title = value.title : value.title = "_all_");
+      ((value.genre && value.genre.toLocaleLowerCase() != "alle") ?  value.genre = value.genre : value.genre = "_all_");
+      this.movies = [];
+      this.movieService.getMoviesSearch(value).subscribe(
+        result => {
+          result.forEach(element => {
+            element.movie.genre = element.genre.name;
+            element.movie.releaseDate = new Date(element.movie.releaseDate.toString().split('T')[0]);
+            this.movies.push(element.movie);
+          });
+        },
+        error => console.log(error)
+      );
+    });
   }
 }

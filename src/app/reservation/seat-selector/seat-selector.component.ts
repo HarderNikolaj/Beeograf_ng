@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CallTracker } from 'assert';
 import { Movie } from 'src/app/models/movie';
-import { reservationStatus } from 'src/app/models/types';
+import { reservationStatus } from 'src/app/models/reservationStatus.enum';
+import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
   selector: 'app-seat-selector',
@@ -52,9 +54,18 @@ movie : Movie;
   ];
   //#endregion
 
-constructor() { }
+constructor(private route: ActivatedRoute, private movieService: MovieService) { }
 
   ngOnInit(): void {
+    console.log(this.route.snapshot.params['id']);
+    this.movieService.getMovieById(this.route.snapshot.params['id'])
+    .subscribe(
+      result => {
+        console.log(result);
+        this.movie = result;
+      }
+    );
   }
+
 
 }

@@ -6,9 +6,11 @@ import { UserPageComponent } from './user/user-page/user-page.component';
 
 const routes: Routes = [
   { path: 'user', component: UserPageComponent, loadChildren: () => import('./user/user.module').then(m => m.UserModule)},
-  { path: 'reservation', component: SeatSelectorComponent, loadChildren: () => import('./reservation/reservation.module').then(m => m.ReservationModule) },
+  { path: 'reservation', loadChildren: () => import('./reservation/reservation.module').then(m => m.ReservationModule) },
   { path: 'mainpage', loadChildren: () => import('./mainpage/mainpage.module').then(m => m.MainpageModule) },
   { path: '', loadChildren: () => import('./mainpage/mainpage.module').then(m => m.MainpageModule) },
+  { path: '**', redirectTo: 'mainpage' },
+
 
 ];
 
