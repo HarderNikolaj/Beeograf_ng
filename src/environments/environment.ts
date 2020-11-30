@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://localhost:51410/api/',
+  baseUrl: 'https://beeater.azurewebsites.net/api/',
   moviePosters: 'assets/images/moviePosters/'
 };
 
