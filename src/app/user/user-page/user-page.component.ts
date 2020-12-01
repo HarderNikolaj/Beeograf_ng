@@ -27,7 +27,8 @@ export class UserPageComponent implements OnInit {
   }
 
   submitUser(){
-    console.log(this.currentUser);
+    let userArr : User[] = [this.currentUser];
+    this.service.updateUsers(userArr).subscribe();
   }
 
 

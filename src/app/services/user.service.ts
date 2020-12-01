@@ -14,4 +14,8 @@ export class UserService {
   getUserById(id : string) : Observable<User>{
     return this.http.get<User>(environment.baseUrl + 'users/id/' + id);
   }
+
+  updateUsers(users : User[]) : Observable<User[]>{
+    return this.http.put<User[]>(environment.baseUrl + 'users/', users );
+  }
 }
