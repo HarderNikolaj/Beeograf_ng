@@ -57,14 +57,7 @@ movie : Movie;
 constructor(private route: ActivatedRoute, private movieService: MovieService) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.params['id']);
-    this.movieService.getMovieById(this.route.snapshot.params['id'])
-    .subscribe(
-      result => {
-        console.log(result);
-        this.movie = result;
-      }
-    );
+
   }
 
 

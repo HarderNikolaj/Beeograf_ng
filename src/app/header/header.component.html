@@ -15,6 +15,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Mine Billetter</a>
         </li>
+        <li class="nav-item" *ngIf="auth.isAuthenticated$">
+          <a class="nav-link" [routerLink]="['/admin']" routerLinkActive>Admin</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" (click)="auth.logout({ returnTo: document.location.origin })">
             Log out

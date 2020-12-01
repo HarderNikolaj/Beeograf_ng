@@ -1,6 +1,6 @@
-<button [routerLink]="['/reservation', movie.id]" class="container border border-dark  rounded bg-light movie-card m-2 p-1 overflow-auto">
+<button [attr.disabled]="buttonDisabled ? true : null" [routerLink]="['/reservation', movie.id]" class="container border border-dark  rounded bg-light movie-card m-2 p-1 overflow-auto">
   <div class="row container-fluid img-container m-0 p-0">
-    <img class="rounded p-0" [src]=" movie.moviePoster">
+    <img class="rounded p-0" [src]="movie.moviePoster">
   </div>
   <div class="row container-fluid m-0 p-0">
     <h4 class="container-fluid">{{movie.title}}</h4>

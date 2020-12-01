@@ -1,3 +1,10 @@
 .outer{
   height: 100vh;
 }
+
+.app-container{
+  overflow: auto;
+  display: inline-block;
+  height: 89vh;
+  width: auto;
+}
