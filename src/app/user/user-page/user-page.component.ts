@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '@auth0/auth0-angular';
-import { Employee } from 'src/app/models/employee';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -11,13 +10,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-page.component.scss']
 })
 export class UserPageComponent implements OnInit {
-  currentUser : User | Employee;
+  currentUser : User;
 
-  userform = new FormGroup({
-    email : new FormControl('', [Validators.required, Validators.email]),
-    family_name : new FormControl(''),
-    given_name : new FormControl('')
-  });
   constructor(public auth : AuthService, private service : UserService) { }
 
   ngOnInit(): void {
@@ -35,4 +29,6 @@ export class UserPageComponent implements OnInit {
   submitUser(){
     console.log(this.currentUser);
   }
+
+
 }
