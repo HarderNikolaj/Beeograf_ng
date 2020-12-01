@@ -1,13 +1,24 @@
 <div class="container-fluid mt-4 bg-light rounded user-page">
   <div class="row">
     <form (ngSubmit)="submitUser()">
-      <label>Fornavn<input type="text" name="firstname" [(ngModel)]="currentUser.firstname"></label>
-      <label>Efternavn<input type="text" name="lastname" [(ngModel)]="currentUser.lastname"></label>
-      <label>Fødselsdag<input type="date" name="birthdate" [ngModel]="currentUser.birthdate | date:'yyyy-MM-dd'"(ngModelChange) = "currentUser.birthdate = $event"></label>
+      <div class="row">
+        <div class="col">
+          <label>Fornavn<input class="form-control" type="text" name="firstname" [(ngModel)]="currentUser.firstname"></label>
+        </div>
+        <div class="col">
+          <label>Efternavn<input class="form-control" type="text" name="lastname" [(ngModel)]="currentUser.lastname"></label>
+        </div>
+        <div class="col">
+          <label>Fødselsdag<input class="form-control" type="date" name="birthdate" [ngModel]="currentUser.birthdate | date:'yyyy-MM-dd'"(ngModelChange) = "currentUser.birthdate = $event"></label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Email<input class="form-control" type="email" name="email" [(ngModel)]="currentUser.email"></label>
+        </div>
+      </div>
       <br>
-      <label>Email<input type="email" name="email" [(ngModel)]="currentUser.email"></label>
-      <br>
-      <button class="submitBtn" type="submit">
+      <button class="button btn btn-secondary ml-2" type="submit">
         Gem ændringer
       </button>
     </form>
