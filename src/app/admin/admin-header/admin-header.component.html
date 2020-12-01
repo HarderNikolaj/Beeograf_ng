@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/movie']">Film</a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/show']" routerLinkActive>Fremvisninger</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/theater']" routerLinkActive>Sale</a>
+        </li>
+        <li class="nav-item" *ngIf="auth.isAuthenticated$">
+          <a class="nav-link" [routerLink]="['/admin']" routerLinkActive>Admin</a>
+        </li>
+
+    </ul>
+  </div>
+</nav>

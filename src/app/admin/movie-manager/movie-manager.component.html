@@ -1,1 +1,49 @@
-<p>movie-manager works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col m-3 p-3">
+      <app-movie-list (movieSelectedEvent)="movieSelected($event)"></app-movie-list>
+    </div>
+
+
+    <div class="col m-3 p-3">
+      <h3>Rediger Film</h3>
+      <div class="row m-3">
+        <form *ngIf="selectedMovie" (ngSubmit)="submitMovie()">
+          <div class="row">
+            <div class="col">
+              <label>Id<input class="form-control" type="text" name="id" [(ngModel)]="selectedMovie.id"></label>
+            </div>
+            <div class="col">
+              <label>Titel<input class="form-control" type="text" name="title" [(ngModel)]="selectedMovie.title"></label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label>Genre<input class="form-control" type="text" name="genre" [ngModel]="selectedMovie.genre"></label>
+            </div>
+            <div class="col">
+              <label>Plakat<input class="form-control" type="string" name="moviePoster" [(ngModel)]="selectedMovie.moviePoster"></label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label>Længde<input class="form-control" type="string" name="duration" [(ngModel)]="selectedMovie.duration"></label>
+            </div>
+            <div class="col">
+              <label>Udgivelses Dato<input class="form-control" type="date" name="releaseDate" [ngModel]="selectedMovie.releaseDate  | date:'yyyy-MM-dd'" (ngModelChange) = "selectedMovie.releaseDate = $event"></label>
+            </div>
+          </div>
+          <br>
+          <button class="button btn btn-secondary ml-2" type="submit">
+            Gem ændringer
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>
+
+

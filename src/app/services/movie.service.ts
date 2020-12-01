@@ -25,4 +25,8 @@ export class MovieService {
     return this.http.get<Movie>(environment.baseUrl + "movies/" + id);
   }
 
+  updateMovies(movies: Movie[]): Observable<Movie[]> {
+    return this.http.put<Movie[]>(environment.baseUrl + "movies/", movies);
+  }
+
 }

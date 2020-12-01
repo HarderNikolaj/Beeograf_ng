@@ -4,7 +4,10 @@ import { MovieManagerComponent } from './movie-manager/movie-manager.component';
 
 
 const routes: Routes = [
-  { path: '', component: MovieManagerComponent}
+  { path: 'movies', component: MovieManagerComponent},
+  { path: 'movies', component: MovieManagerComponent},
+  { path: '', redirectTo: 'movies'},
+
 ];
 
 @NgModule({
