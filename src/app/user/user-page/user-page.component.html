@@ -1,5 +1,5 @@
-<div class="container-fluid mt-4 bg-light rounded">
-  <div class="row">
+<!-- <div class="container-fluid mt-4 bg-light rounded"> -->
+  <div class="row container p-3">
     <form *ngIf="currentUser" (ngSubmit)="submitUser()">
       <div class="row">
         <div class="col">
@@ -12,10 +12,13 @@
           <label>Fødselsdag<input class="form-control" type="date" name="birthdate" [ngModel]="currentUser.birthdate | date:'yyyy-MM-dd'"(ngModelChange) = "currentUser.birthdate = $event"></label>
         </div>
       </div>
-      <br>
-      <button class="button btn btn-secondary ml-2" type="submit">
-        Gem ændringer
-      </button>
+      <div class="row">
+        <div class="col">
+          <button class=" btn btn-primary" type="submit">
+            Gem ændringer
+          </button>
+        </div>
+      </div>
     </form>
   </div>
-</div>
+<!-- </div> -->
