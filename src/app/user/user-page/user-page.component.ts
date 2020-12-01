@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
@@ -12,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class UserPageComponent implements OnInit {
   currentUser : User;
 
-  constructor(public auth : AuthService, private service : UserService) { }
+  constructor(public auth : AuthService, private service : UserService, private router : Router) { }
 
   ngOnInit(): void {
     this.auth.user$.subscribe(
@@ -29,6 +30,8 @@ export class UserPageComponent implements OnInit {
   submitUser(){
     let userArr : User[] = [this.currentUser];
     this.service.updateUsers(userArr).subscribe();
+
+    this.router.navigate(['/mainpage']);
   }
 
 
