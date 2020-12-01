@@ -1,4 +1,4 @@
-<div class="container-fluid mt-4 bg-light rounded user-page">
+<div class="container-fluid mt-4 bg-light rounded">
   <div class="row">
     <form *ngIf="currentUser" (ngSubmit)="submitUser()">
       <div class="row">
@@ -10,11 +10,6 @@
         </div>
         <div class="col">
           <label>Fødselsdag<input class="form-control" type="date" name="birthdate" [ngModel]="currentUser.birthdate | date:'yyyy-MM-dd'"(ngModelChange) = "currentUser.birthdate = $event"></label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-          <label>Email<input class="form-control" type="email" name="email" [(ngModel)]="currentUser.email"></label>
         </div>
       </div>
       <br>
