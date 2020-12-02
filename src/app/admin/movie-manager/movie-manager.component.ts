@@ -15,14 +15,9 @@ export class MovieManagerComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  submitMovie(): void {
-    this.movieService.updateMovies([this.selectedMovie]).subscribe(
-    )
-  }
-
   movieSelected(movie: Movie): void {
     this.selectedMovie = movie;
   }
+
 
 }

@@ -1,4 +1,4 @@
 <h3>Vælg Film</h3>
-<div class="overflow-auto list-group mt-3">
+<div class="overflow-auto list-group mt-3 max-h-65">
     <button (click)="onClick(movie)" *ngFor="let movie of movies" class="list-group-item list-group-item-action rounded">{{movie.id}} - {{movie.title}}</button>
 </div>
