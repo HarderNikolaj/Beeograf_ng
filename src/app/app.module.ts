@@ -30,7 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     }),
     HttpClientModule
   ],
-  providers: [ MovieService],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

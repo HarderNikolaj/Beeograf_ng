@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Movie } from 'src/app/models/movie';
+import { EventService } from 'src/app/services/event.service';
 import { MovieService } from 'src/app/services/movie.service';
 
 @Component({
@@ -10,14 +11,23 @@ import { MovieService } from 'src/app/services/movie.service';
 export class MovieListComponent implements OnInit {
 
   movies: Movie[] = [];
-  @Output() movieSelectedEvent = new EventEmitter<Movie>();
+  @Output() movieSelectedEvent: EventEmitter<Movie> = new EventEmitter<Movie>();
 
-  constructor(private movieService : MovieService) { }
+  constructor(private movieService : MovieService, private eventService: EventService) {
+    this.eventService.reloadRequested.subscribe(
+      result => {
+        console.log("event emitted");
+        this.getMovies();
+      } ,
+      error => console.log(error)
+    );
+   }
 
   ngOnInit(): void {
     this.getMovies();
   }
   getMovies() : void{
+    this.movies = [];
     this.movieService.getMovies().subscribe(
       result => {
         result.forEach(element => {

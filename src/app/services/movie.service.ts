@@ -4,7 +4,6 @@ import { Movie } from '../models/movie';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Genre } from '../models/genre';
-import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 
 
 @Injectable({
@@ -31,6 +30,10 @@ export class MovieService {
 
   addMovies(movies: Movie[]): Observable<Movie[]>{
     return this.http.post<Movie[]>(environment.baseUrl + "movies/", movies);
+  }
+
+  deleteMovies(movie: Movie): Observable<Movie>{
+    return this.http.delete<Movie>(environment.baseUrl + "movies/" + movie.id);
   }
 
 }
