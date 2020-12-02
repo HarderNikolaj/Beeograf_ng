@@ -6,9 +6,11 @@ export class Movie{
   id: number;
   title: string;
   moviePoster: string;
-  genre: string;
+  genreId: number;
+  genre?: string;
   details?: string;
   duration: string;
   releaseDate: Date;
+  ageRating?: number;
 
 }
