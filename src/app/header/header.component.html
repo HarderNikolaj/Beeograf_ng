@@ -15,7 +15,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Mine Billetter</a>
         </li>
-        <li class="nav-item" *ngIf="auth.isAuthenticated$">
+        <li class="nav-item" *ngIf="userIsAdmin">
           <a class="nav-link" [routerLink]="['/admin']" routerLinkActive>Admin</a>
         </li>
         <li class="nav-item">
@@ -24,6 +24,7 @@
           </a>
         </li>
       </ng-container>
+
       <ng-template #loggedOut>
         <li class="nav-item">
           <a class="nav-link" (click)="auth.loginWithRedirect()">Log in</a>

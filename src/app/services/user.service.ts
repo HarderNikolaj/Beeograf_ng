@@ -18,4 +18,5 @@ export class UserService {
   updateUsers(users : User[]) : Observable<User[]>{
     return this.http.put<User[]>(environment.baseUrl + 'users/', users );
   }
+
 }
