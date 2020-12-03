@@ -3,6 +3,6 @@
     <app-show-selector (showSelectedEvent)="showSelected($event)"></app-show-selector>
   </div>
   <div class="col container-fluid seatSelector pt-2 pb-5 rounded">
-    <app-seat-selector [selectedShow]="selectedShow"></app-seat-selector>
+    <app-seat-selector [selectedShow]="selectedShow" [seatsModel]="seatsModel" [seatsArray]="seatsArray"></app-seat-selector>
   </div>
 </div>
