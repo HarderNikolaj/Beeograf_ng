@@ -1,0 +1,8 @@
+<div class="reservation-outer  row m-4 p-0 bg-light rounded">
+  <div class="col-3">
+    <app-show-selector (showSelectedEvent)="showSelected($event)"></app-show-selector>
+  </div>
+  <div class="col container-fluid seatSelector pt-2 pb-5 rounded">
+    <app-seat-selector [selectedShow]="selectedShow"></app-seat-selector>
+  </div>
+</div>

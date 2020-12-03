@@ -1,15 +1,10 @@
-<div class="seat-selector-outer  row m-4 p-0 bg-light rounded">
-  <div class="col-3">
-    <!-- <app-movie-details [movie]="movie"></app-movie-details> -->
-    <app-movie [movie]="movie"></app-movie>
-  </div>
-  <div class="col container-fluid seatSelector pt-2 pb-5 rounded">
-      <ul class="center">
-        <li >
-          <img src="/assets/images/screen.png">
-        </li>
-        <li class=" border-top border-bottom p-0 border-dark" *ngFor="let row of rows; let i = index">
-          <div>
+<div class="col container-fluid seatSelector pt-2 pb-5 rounded">
+  <ul class="center">
+    <li >
+      <img src="/assets/images/screen.png">
+    </li>
+    <li class=" border-top border-bottom p-0 border-dark" *ngFor="let row of rows; let i = index">
+      <div>
 
             <div class="float-r">Række {{i + 1}}</div>
 
@@ -23,4 +18,4 @@
         </li>
       </ul>
       </div>
-</div>
+

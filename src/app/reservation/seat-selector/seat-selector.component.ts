@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CallTracker } from 'assert';
 import { Movie } from 'src/app/models/movie';
 import { reservationStatus } from 'src/app/models/reservationStatus.enum';
+import { Show } from 'src/app/models/show';
 import { MovieService } from 'src/app/services/movie.service';
+import { ShowService } from 'src/app/services/show.service';
 
 @Component({
   selector: 'app-seat-selector',
@@ -11,7 +13,6 @@ import { MovieService } from 'src/app/services/movie.service';
   styleUrls: ['./seat-selector.component.scss']
 })
 export class SeatSelectorComponent implements OnInit {
-movie : Movie;
 //#region rowsarray
   rows: { seat : number, taken : reservationStatus }[][] = [
     [
@@ -60,5 +61,5 @@ constructor(private route: ActivatedRoute, private movieService: MovieService) {
 
   }
 
-
+  @Input() selectedShow : Show = new Show();
 }
