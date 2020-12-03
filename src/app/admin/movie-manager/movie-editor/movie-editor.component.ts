@@ -28,6 +28,8 @@ export class MovieEditorComponent implements OnInit {
       error => console.log(error)
     )
   }
+
+
   submitMovie(): void {
     this.movieService.updateMovies([this.selectedMovie]).subscribe(
       result => {

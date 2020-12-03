@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MovieManagerComponent } from './movie-manager/movie-manager.component';
+import { TheaterManagerComponent } from './theater-manager/theater-manager.component';
 
 
 const routes: Routes = [
-  { path: 'movies', component: MovieManagerComponent},
-  { path: 'movies', component: MovieManagerComponent},
-  { path: '', redirectTo: 'movies'},
+  { path: 'movie', component: MovieManagerComponent},
+  { path: 'theater', component: TheaterManagerComponent},
+  { path: '', redirectTo: 'movie'},
 
 ];
 

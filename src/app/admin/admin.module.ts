@@ -8,10 +8,11 @@ import { AdminComponent } from './admin/admin.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MovieListComponent } from './movie-manager/movie-list/movie-list.component';
 import { MovieEditorComponent } from './movie-manager/movie-editor/movie-editor.component';
+import { TheaterManagerComponent } from './theater-manager/theater-manager.component';
 
 
 @NgModule({
-  declarations: [MovieManagerComponent, AdminHeaderComponent, AdminComponent, MovieListComponent, MovieEditorComponent ],
+  declarations: [MovieManagerComponent, AdminHeaderComponent, AdminComponent, MovieListComponent, MovieEditorComponent, TheaterManagerComponent ],
   imports: [
     CommonModule,
     AdminRoutingModule,

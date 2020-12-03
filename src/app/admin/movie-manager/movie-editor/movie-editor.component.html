@@ -3,24 +3,24 @@
   <h3 >Opret ny Film</h3>
 </ng-template>
   <div class="row m-3">
-    <form>
+    <form #movieForm="ngForm" >
       <div class="row">
-        <div class="col">
-          <label>Id<input disabled class="form-control" type="text" name="id" [(ngModel)]="selectedMovie.id"></label>
+        <div class="col form-group">
+          <label>Id<input disabled class="form-control" type="text" name="id" id="id" [(ngModel)]="selectedMovie.id" ></label>
         </div>
-        <div class="col">
-          <label>Titel<input class="form-control" type="text" name="title" [(ngModel)]="selectedMovie.title"></label>
+        <div class="col form-group">
+          <label>Titel<input class="form-control" #title="ngModel" type="text" id="title" name="title" #titel="ngModel" [(ngModel)]="selectedMovie.title" required></label>
         </div>
+
       </div>
       <div class="row">
         <div class="col">
-          <label>Genre<select class="form-control " name="genre" [(ngModel)]="selectedMovie.genreId">
+          <label>Genre<select class="form-control " name="genre" id="genre" #genre="ngModel" [(ngModel)]="selectedMovie.genreId" required>
             <option *ngFor="let genre of genres" [value]="genre.id">{{genre.name}}</option>
           </select></label>
-          <!-- <label>Genre<input class="form-control" type="number" name="genreId" [(ngModel)]="selectedMovie.genreId"></label> -->
         </div>
         <div class="col">
-          <label>Plakat<input class="form-control" type="string" name="moviePoster" [(ngModel)]="selectedMovie.moviePoster"></label>
+          <label>Plakat<input class="form-control" type="string" name="moviePoster" [(ngModel)]="selectedMovie.moviePoster" required></label>
         </div>
       </div>
       <div class="row">
@@ -44,11 +44,11 @@
           <button *ngIf="selectedMovie.id" class="button btn btn-danger ml-2" (click)="deleteMovie()" type="button">
             Slet Film
           </button>
-          <button *ngIf="selectedMovie.id; else newMovie" class="button btn btn-primary ml-2" (click)="submitMovie()" type="button">
+          <button *ngIf="selectedMovie.id; else newMovie" class="button btn btn-primary ml-2" (click)="submitMovie()" [disabled]="!movieForm.form.valid" type="submit">
             Gem ændringer
           </button>
           <ng-template #newMovie>
-            <button class="button btn btn-primary ml-2" (click)="submitNewMovie()" type="button">
+            <button class="button btn btn-primary ml-2" (click)="submitNewMovie()" [disabled]="!movieForm.form.valid" type="submit">
               Opret Film
             </button>
           </ng-template>

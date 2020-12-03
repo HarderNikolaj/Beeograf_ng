@@ -5,16 +5,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/movie']">Film</a>
+        <a class="nav-link" [routerLink]="['movie']">Film</a>
       </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/show']" routerLinkActive>Fremvisninger</a>
+          <a class="nav-link" [routerLink]="['show']" routerLinkActive>Fremvisninger</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/theater']" routerLinkActive>Sale</a>
+          <a class="nav-link" [routerLink]="['theater']" routerLinkActive>Sale</a>
         </li>
         <li class="nav-item" *ngIf="auth.isAuthenticated$">
-          <a class="nav-link" [routerLink]="['/admin']" routerLinkActive>Admin</a>
+          <a class="nav-link" [routerLink]="['admin']" routerLinkActive>Admin</a>
         </li>
 
     </ul>
