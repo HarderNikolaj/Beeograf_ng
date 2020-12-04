@@ -1,2 +1,2 @@
-<p>show-selector works!</p>
+<h4>Vælg en visning</h4>
 <button (click)="onClick(show)" *ngFor="let show of shows" class="list-group-item list-group-item-action rounded">{{show.showTime | date:'dd MMM, HH:mm'}} - {{show.theater.name}}</button>

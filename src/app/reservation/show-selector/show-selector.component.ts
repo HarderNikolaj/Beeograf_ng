@@ -20,7 +20,7 @@ export class ShowSelectorComponent implements OnInit {
 
     this.service.getShowsForMovie(+this.movieId)
       .subscribe(
-      result => {console.log(result); this.shows = result},
+      result => this.shows = result,
       error => console.log(error)
       );
   }

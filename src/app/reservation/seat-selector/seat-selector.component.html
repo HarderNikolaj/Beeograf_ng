@@ -10,12 +10,13 @@
 
               <ul class="float-r seatsInRow center mt-1 mb-2">
                 <li class="float-r" *ngFor="let seat of row">
-                  <app-seat [seatNumber]="seat.seat" [taken]="seat.taken"></app-seat>
+                  <app-seat [seatNumber]="seat.seat" [(taken)]="seat.taken"></app-seat>
                 </li>
               </ul>
               &nbsp;Række {{i + 1}}
           </div>
         </li>
       </ul>
+      <button (click)="submitReservation()" [disabled]="!currentUserId">Book billetter</button>
       </div>
 
