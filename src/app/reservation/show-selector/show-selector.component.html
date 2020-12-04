@@ -1,2 +1,4 @@
-<h4>Vælg en visning</h4>
+<h4>{{movieTitle}}</h4>
+<br>
+<h5>Vælg en visning</h5>
 <button (click)="onClick(show)" *ngFor="let show of shows" class="list-group-item list-group-item-action rounded">{{show.showTime | date:'dd MMM, HH:mm'}} - {{show.theater.name}}</button>

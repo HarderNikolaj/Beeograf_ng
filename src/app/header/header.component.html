@@ -13,7 +13,7 @@
           <a class="nav-link" [routerLink]="['/user']">Min Bruger</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Mine Billetter</a>
+          <a class="nav-link" [routerLink]="['/mytickets']">Mine Billetter</a>
         </li>
         <li class="nav-item" *ngIf="userIsAdmin">
           <a class="nav-link" [routerLink]="['/admin']" routerLinkActive>Admin</a>
