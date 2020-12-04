@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 import { reservationStatus } from 'src/app/models/reservationStatus.enum';
 
 @Component({
@@ -9,7 +10,7 @@ import { reservationStatus } from 'src/app/models/reservationStatus.enum';
 export class SeatComponent implements OnInit {
   @Input() taken : reservationStatus;
   @Input() seatNumber : number;
-
+  @Output() takenChange : EventEmitter<reservationStatus> = new  EventEmitter<reservationStatus>();
 
   constructor() {
    }
@@ -17,4 +18,11 @@ export class SeatComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  toggleSeatSelection(){
+    this.taken = this.taken === reservationStatus.free
+      ? reservationStatus.reservePending
+      : reservationStatus.free;
+
+    this.takenChange.emit(this.taken);
+  }
 }

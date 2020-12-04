@@ -11,10 +11,14 @@ import { FormsModule } from '@angular/forms';
 import { AuthModule } from '@auth0/auth0-angular';
 import { MovieService } from './services/movie.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { SuccessDialogComponent } from './reservation/success-dialog/success-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SuccessDialogComponent,
     HeaderComponent
   ],
   imports: [
@@ -28,7 +32,12 @@ import { HttpClientModule } from '@angular/common/http';
       domain: 'dev-02iexm3g.eu.auth0.com',
       clientId: 'twZlY01w6BPrldPQd0VFyVI8m2lXJsNc'
     }),
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    SuccessDialogComponent
   ],
   providers: [ ],
   bootstrap: [AppComponent]

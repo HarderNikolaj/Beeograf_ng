@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 input, select{
   width: 200px !important;
 }
@@ -20,3 +21,7 @@ input, select{
 .ng-valid:required{
   border-left: 5px solid rgb(48, 197, 48);
 }
+=======
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+>>>>>>> 8d0d79877da480fdfb12d4a0299d40c4ec81455e
