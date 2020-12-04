@@ -46,15 +46,17 @@ constructor(private auth : AuthService, private bookingService : BookingService,
         }
       }
     }
-    this.bookingService.createBookings(bookings).subscribe(
-      result => {
-        let dialogRef = this.dialog.open(SuccessDialogComponent, {data : {quantity : result.length}});
-        dialogRef.afterClosed().subscribe(
-          result => this.router.navigate(['/mainpage'])
-        );
-      },
-      error => console.log(error)
-    );
+    if (bookings.length > 0){
+      this.bookingService.createBookings(bookings).subscribe(
+        result => {
+          let dialogRef = this.dialog.open(SuccessDialogComponent, {data : {quantity : result.length}});
+          dialogRef.afterClosed().subscribe(
+            result => this.router.navigate(['/mainpage'])
+          );
+        },
+        error => console.log(error)
+      );
+    }
   }
 
   @Input() selectedShow : Show = new Show();
