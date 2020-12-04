@@ -1,1 +1,14 @@
-<p>my-tickets-page works!</p>
+<div class="row container p-3">
+  <div class="col-6">
+    <h5>Bestilte billetter:</h5>
+    <div *ngFor="let ticket of upcoming">
+      <app-ticket [ticket]="ticket"></app-ticket>
+    </div>
+  </div>
+  <div class="col-6">
+    <h5>Gamle forestillinger:</h5>
+    <div *ngFor="let ticket of old">
+      <app-ticket [ticket]="ticket"></app-ticket>
+    </div>
+  </div>
+</div>
