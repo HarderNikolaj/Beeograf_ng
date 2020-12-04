@@ -4,3 +4,19 @@
 *{
   box-sizing: border-box;
 }
+
+input, select{
+  width: 200px !important;
+}
+
+.ng-invalid:not(form){
+  border-left: 5px solid red;
+}
+
+.ng-pristine:required{
+  border-left: 5px solid yellow;
+}
+
+.ng-valid:required{
+  border-left: 5px solid rgb(48, 197, 48);
+}

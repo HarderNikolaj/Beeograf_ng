@@ -1,0 +1,4 @@
+<h3>Vælg Sal</h3>
+<div class="overflow-auto list-group mt-3 max-h-65">
+    <button (click)="onClick(theater)" *ngFor="let theater of theaters" class="list-group-item list-group-item-action rounded">{{theater.id}} - {{theater.name}}</button>
+</div>
