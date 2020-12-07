@@ -11,15 +11,31 @@ import { MovieEditorComponent } from './movie-manager/movie-editor/movie-editor.
 import { TheaterManagerComponent } from './theater-manager/theater-manager.component';
 import { TheaterListComponent } from './theater-manager/theater-list/theater-list.component';
 import { TheaterEditorComponent } from './theater-manager/theater-editor/theater-editor.component';
+import { TheaterSeatingEditorComponent } from './theater-manager/theater-seating-editor/theater-seating-editor.component';
+import { ReservationModule } from '../reservation/reservation.module';
+import { SeatComponent } from '../reservation/seat/seat.component';
+import { TheaterSeatComponent } from './theater-manager/theater-seat/theater-seat.component';
 
 
 @NgModule({
-  declarations: [MovieManagerComponent, AdminHeaderComponent, AdminComponent, MovieListComponent, MovieEditorComponent, TheaterManagerComponent, TheaterListComponent, TheaterEditorComponent ],
+  declarations: [
+    MovieManagerComponent,
+    AdminHeaderComponent,
+    AdminComponent,
+    MovieListComponent,
+    MovieEditorComponent,
+    TheaterManagerComponent,
+    TheaterListComponent,
+    TheaterEditorComponent,
+    TheaterSeatingEditorComponent,
+    TheaterSeatComponent,
+     ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ReservationModule
   ]
 })
 export class AdminModule { }

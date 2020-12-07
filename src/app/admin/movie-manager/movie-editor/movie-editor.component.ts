@@ -61,5 +61,9 @@ export class MovieEditorComponent implements OnInit {
     )
   }
 
+  reset(): void{
+    this.selectedMovie = new Movie();
+   }
+
 
 }

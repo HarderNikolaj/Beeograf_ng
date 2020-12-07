@@ -18,6 +18,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MainpageModule,
     MatDialogModule
 
+  ],
+  exports: [
+    SeatComponent
   ]
 })
 export class ReservationModule { }

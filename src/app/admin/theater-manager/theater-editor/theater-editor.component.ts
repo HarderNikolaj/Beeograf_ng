@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Seat } from 'src/app/models/seat';
 import { Theater } from 'src/app/models/theater';
 import { EventService } from 'src/app/services/event.service';
+import { TheaterService } from 'src/app/services/theater.service';
 
 @Component({
   selector: 'app-theater-editor',
@@ -9,15 +11,27 @@ import { EventService } from 'src/app/services/event.service';
 })
 export class TheaterEditorComponent implements OnInit {
   selectedTheater: Theater = new Theater();
-  constructor(private eventService: EventService) {
+
+  constructor(private eventService: EventService, private theaterService: TheaterService) {
     this.eventService.theaterSelected.subscribe(
-      result => this.selectedTheater = result,
+      result => {
+        this.selectedTheater = this.seatsToArray(result);
+      } ,
       error => console.log(error)
     );
    }
 
-   deleteTheater(){
+   seatsToArray(theater: Theater) : Theater {
+    let rowsArray : number[] = [];
+    theater.seats.forEach(element => {
+      (rowsArray[element.row-1]) ? rowsArray[element.row-1]++ : rowsArray[element.row-1] = 1;
+    });
+    theater.rowsArray = rowsArray;
+    return theater;
+   }
 
+   deleteTheater(){
+    this.theaterService.deleteTheater(this.selectedTheater);
    }
 
    editTheater(){
@@ -26,6 +40,10 @@ export class TheaterEditorComponent implements OnInit {
 
    submitNewTheater(){
 
+   }
+
+   reset(): void{
+    this.selectedTheater = new Theater();
    }
 
   ngOnInit(): void {

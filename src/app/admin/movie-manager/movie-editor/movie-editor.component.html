@@ -38,7 +38,7 @@
         <div class="col"></div>
       </div>
       <div class="mt-3 row">
-          <button [attr.disabled]="!selectedMovie.id ? true : null" class="button btn btn-secondary ml-2" type="reset">
+          <button [attr.disabled]="!selectedMovie.id ? true : null" class="button btn btn-secondary ml-2" type="button" (click)="reset()">
             Afbryd
           </button >
           <button *ngIf="selectedMovie.id" class="button btn btn-danger ml-2" (click)="deleteMovie()" type="button">

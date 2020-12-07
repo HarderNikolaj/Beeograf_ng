@@ -1,0 +1,29 @@
+<div class="col container-fluid seatSelector pt-2 pb-5 rounded">
+  <ul class="center">
+    <li >
+      <img src="/assets/images/screen.png">
+    </li>
+    <li class=" border-top border-bottom p-0 border-dark" *ngFor="let row of rows; let i = index">
+      <div>
+
+            <div class="float-r">Række {{i + 1}}</div>
+
+              <ul class="float-r seatsInRow center mt-1 mb-2">
+                <li class="float-r" *ngFor="let seat of row">
+                    <app-theater-seat [seat]="seat"></app-theater-seat>
+
+                </li>
+
+              </ul>
+              <li class="float-r">
+                <button class="btn btn-danger rounded mt-3 m-1 add-delete" (click)="removeSeat(i)">-</button>
+              </li>
+              <li class="float-r">
+                <button class="btn btn-primary rounded mt-3 m-1 add-delete" (click)="addSeat(i)">+</button>
+              </li>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <br>
+

@@ -1,5 +1,5 @@
 export class Seat{
-  id : number;
+  id? : number;
   row : number;
   number : number;
 }
