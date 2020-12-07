@@ -13,20 +13,6 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col form-group">
-          <label>Antal Rækker<input class=" form-control" type="number" required min="1" value="{{selectedTheater.rowsArray ? selectedTheater.rowsArray.length : 5}}"></label>
-        </div>
-        <div class="col form-group">
-          <label>Sæder per række<input class=" form-control" type="number" required min="1"></label>
-        </div>
-      </div>
-
-      <!-- <div class="row container-fluid">
-          <div class="form-group mr-1" *ngFor="let row of selectedTheater.rowsArray; let i = index">
-            <label>Række {{i+1}}<input class="form-control seats-row" type="number" name="row{{i+1}}" value="{{row}}"></label>
-          </div>
-      </div> -->
 
       <div class="mt-3 row">
           <button [attr.disabled]="!selectedTheater.id ? true : null" class="button btn btn-secondary ml-2" type="button" (click)="reset()">

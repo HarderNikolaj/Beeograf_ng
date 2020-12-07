@@ -23,6 +23,10 @@
               </li>
           </div>
         </li>
+        <li *ngIf="selectedTheater.id" class="mt-2">
+          <button class="btn btn-primary rounded mt-3 m-1" (click)="addRow()">Tilføj Række</button>
+          <button class="btn btn-danger rounded mt-3 m-1" (click)="removeRow()">Fjern Række</button>
+        </li>
       </ul>
     </div>
     <br>

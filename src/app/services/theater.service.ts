@@ -24,7 +24,7 @@ export class TheaterService {
     return this.http.delete<Theater[]>(environment.baseUrl + "theaters" + theater.id);
   }
 
-  putTheaterWithSeats(theater: Theater, seats: Seat[]) : Observable<Theater> {
-    return this.http.put<Theater>(environment.baseUrl + 'theater/seats', { theater: theater, seats: seats});
+  putTheaterWithSeats(theater: Theater, seatsToBeDeleted: Seat[]) : Observable<Theater> {
+    return this.http.put<Theater>(environment.baseUrl + 'theaters/seats', { theater: theater, seatsToBeDeleted: seatsToBeDeleted});
   }
 }

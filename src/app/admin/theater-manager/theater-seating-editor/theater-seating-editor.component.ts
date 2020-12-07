@@ -10,12 +10,15 @@ import { TheaterService } from 'src/app/services/theater.service';
   styleUrls: ['./theater-seating-editor.component.scss']
 })
 export class TheaterSeatingEditorComponent implements OnInit {
-  rows: Seat[][] = [];
+  rows: Seat[][] = []; //The seats that are currently visible in the seat-editor
+  deletedSeats: Seat[][] = []; //Seats that have been removed in the editor, but not from the database
   selectedTheater: Theater = new Theater();
 
   constructor(private eventService: EventService, private theaterService: TheaterService) {
     this.eventService.theaterSelected.subscribe(
       result => {
+        this.rows = [];
+        this.deletedSeats = [];
         this.selectedTheater = result;
         this.rows = this.seatsToRows(this.selectedTheater);
       }
@@ -27,16 +30,6 @@ export class TheaterSeatingEditorComponent implements OnInit {
 
 
 
-  rowsToSeats(rows: Seat[][]) : Seat[] {
-    let seats : Seat[] = [];
-    rows.forEach(row => {
-      row.forEach(seat => {
-        seats.push(seat);
-      });
-    });
-    return seats;
-  }
-
   seatsToRows(theater: Theater) : Seat[][] {
     let rowsArray : Seat[][] = [];
     theater.seats.forEach(element => {
@@ -45,19 +38,45 @@ export class TheaterSeatingEditorComponent implements OnInit {
      return rowsArray;
    }
 
-   addSeat(rowNumber: number){
-     let row = this.rows[rowNumber];
-     let number = (row[row.length-1].number) ? 2 : 1;
-     let newSeat : Seat = {
-       row: rowNumber,
-       number: number
-      }
+   addSeat(rowNumber: number) : void{
+    let row = this.rows[rowNumber];
+    let newSeat: Seat = new Seat();
 
+    if(this.deletedSeats[rowNumber] && this.deletedSeats[rowNumber][0])  {
+      newSeat = this.deletedSeats[rowNumber].shift();
+    }
+    else{
+      let number = (row[row.length-1]?.number) ? row[row.length-1].number + 1 : 1;
+      newSeat = {
+        row: rowNumber+1,
+        number: number
+      }
+    }
       this.rows[rowNumber].push(newSeat);
+      this.eventService.changeSeats(this.rows)
    }
 
-   removeSeat(row : number){
-     this.rows[row].pop();
+   removeSeat(rowNumber : number) : void{
+     let removedSeat: Seat = this.rows[rowNumber].pop();
+     if(removedSeat.id){
+       (this.deletedSeats[rowNumber]) ? this.deletedSeats[rowNumber].push(removedSeat) : this.deletedSeats[rowNumber] = [removedSeat];
+     }
+     this.eventService.changeSeats(this.rows)
+     this.eventService.deleteSeat(this.deletedSeats)
+   }
+
+   addRow() : void{
+     this.rows.push([]);
+   }
+
+   removeRow() : void{
+    let row = this.rows[this.rows.length-1];
+    row.forEach(element => {
+      (this.deletedSeats[element.row-1]) ? this.deletedSeats[element.row-1].push(element) : this.deletedSeats[element.row-1] = [element];
+    })
+    this.rows.pop();
+    this.eventService.changeSeats(this.rows)
+     this.eventService.deleteSeat(this.deletedSeats)
    }
 
 }
