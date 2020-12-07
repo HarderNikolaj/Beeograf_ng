@@ -10,7 +10,12 @@ export class SuccessDialogComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: {quantity : number}) { }
 
+  message : string = 'Du har nu booket ' + this.data.quantity;
+
   ngOnInit(): void {
+    this.message += this.data.quantity === 1
+      ? ' billet'
+      : ' billetter';
   }
 
 }
