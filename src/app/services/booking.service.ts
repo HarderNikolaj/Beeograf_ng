@@ -19,4 +19,8 @@ export class BookingService {
   getBookingsForUser(userId : string) : Observable<Ticket[]>{
     return this.http.get<Ticket[]>(environment.baseUrl + 'bookings/user/' + userId);
   }
+
+  deleteBooking(bookingId : number) : Observable<Ticket>{
+    return this.http.delete<Ticket>(environment.baseUrl + 'bookings/' + bookingId);
+  }
 }

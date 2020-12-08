@@ -1,14 +1,14 @@
 <div class="row container">
   <div class="col-6">
     <h5>Bestilte billetter:</h5>
-    <div *ngFor="let ticket of upcoming">
-      <app-ticket [ticket]="ticket"></app-ticket>
+    <div *ngFor="let ticket of upcoming; let i=index">
+      <app-ticket [(ticket)]="upcoming[i]" [canCancel]=true></app-ticket>
     </div>
   </div>
   <div class="col-6">
     <h5>Gamle forestillinger:</h5>
     <div *ngFor="let ticket of old">
-      <app-ticket [ticket]="ticket"></app-ticket>
+      <app-ticket [ticket]="ticket" [canCancel]=false></app-ticket>
     </div>
   </div>
 </div>
