@@ -19,7 +19,7 @@ export class TicketComponent implements OnInit {
   constructor(private bookingService : BookingService) { }
 
   ngOnInit(): void {
-    if (this.ticket) {  
+    if (this.ticket) {
       this.moviePoster = environment.moviePosters + this.ticket.show.movie.moviePoster;
     }
   }
@@ -28,7 +28,7 @@ export class TicketComponent implements OnInit {
 
   cancelReservation(){
     this.bookingService.deleteBooking(this.ticket.id).subscribe(
-      result => this.ticketChange.emit(undefined),
+      () => this.ticketChange.emit(undefined),
       error => console.log(error)
     );
   }
