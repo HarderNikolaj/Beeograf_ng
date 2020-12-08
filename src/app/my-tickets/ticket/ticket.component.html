@@ -1,10 +1,15 @@
-<div class="row container-fluid ticket-container  m-3">
+<div class="row container-fluid ticket-container pr-0 m-3 rounded">
   <div class="col-sm p-2">
     <h5 class="movieTitle">{{ticket.show.movie.title}}</h5>
     <p class="movieDetail">{{ticket.show.theater.name}}</p>
+    <div class="row movieDetail">
+      <p class="mb-0"> Række {{ticket.seat.row}}</p>
+      <p class="mb-0">,  &nbsp;</p>
+      <p class="mb-0"> Sæde {{ticket.seat.number}}</p>
+    </div>
     <p class="movieDetail">{{ticket.show.showTime | date:'dd. MMM yyyy HH:mm'}}</p>
   </div>
-  <div class="col-sm-auto">
-    <img class="ticketPoster" [src]="moviePoster">
+  <div class="col-sm-auto pr-0">
+    <img class="ticketPoster rounded" [src]="moviePoster">
   </div>
 </div>
