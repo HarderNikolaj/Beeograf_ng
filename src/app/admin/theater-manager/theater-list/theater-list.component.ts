@@ -12,7 +12,11 @@ export class TheaterListComponent implements OnInit {
 
   theaters: Theater[] = [];
 
-  constructor(private theaterService: TheaterService, private eventService: EventService) { }
+  constructor(private theaterService: TheaterService, private eventService: EventService) {
+    this.eventService.reloadRequested.subscribe(
+     result => this.getTheaters()
+    )
+   }
 
   ngOnInit(): void {
     this.getTheaters();

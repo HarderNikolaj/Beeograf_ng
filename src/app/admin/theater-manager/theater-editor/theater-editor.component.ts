@@ -56,17 +56,33 @@ export class TheaterEditorComponent implements OnInit {
    }
 
    deleteTheater(){
-    this.theaterService.deleteTheater(this.selectedTheater);
+    this.theaterService.deleteTheater(this.selectedTheater).subscribe(
+      result => {
+        this.eventService.requestReload(null);
+        this.selectedTheater = new Theater();
+      }
+    );
+
+
    }
 
    editTheater(){
     this.theaterService.putTheaterWithSeats(this.selectedTheater, this.seatsToBeDeleted).subscribe(
-      result => console.log(result)
+      result =>  this.eventService.requestReload(null)
     )
+
    }
 
    submitNewTheater(){
-
+     console.log(this.selectedTheater)
+     this.theaterService.postTheater(this.selectedTheater).subscribe(
+       result => {
+         this.selectedTheater = result;
+         this.selectedTheater.seats = [];
+         this.eventService.selectTheater(this.selectedTheater)
+       }
+     )
+     this.eventService.requestReload(null);
    }
 
    reset(): void{
