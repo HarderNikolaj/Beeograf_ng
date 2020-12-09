@@ -18,7 +18,6 @@ export class RatingDialogComponent implements OnInit {
   }
 
   onRatingChange(event){
-    console.log(event);
     this.rating = event.rating;
   }
 }

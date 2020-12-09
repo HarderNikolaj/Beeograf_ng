@@ -15,6 +15,10 @@ export class RatingService {
     return this.http.get<Rating>(environment.baseUrl + 'ratings/user/' + userId + '/movie/' + movieId);
   }
 
+  getRatingsForMovie(movieId : number) : Observable<Rating[]>{
+    return this.http.get<Rating[]>(environment.baseUrl + 'ratings/movie/' + movieId);
+  }
+
   postRatings(ratings : Rating[]) : Observable<Rating[]>{
     return this.http.post<Rating[]>(environment.baseUrl + 'ratings', ratings);
   }

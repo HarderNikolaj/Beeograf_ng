@@ -8,6 +8,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { ShowSelectorComponent } from './show-selector/show-selector.component';
 import { SuccessDialogComponent } from './success-dialog/success-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { StarRatingModule } from 'angular-star-rating';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     CommonModule,
     ReservationRoutingModule,
     MainpageModule,
-    MatDialogModule
+    MatDialogModule,
+    StarRatingModule.forRoot()
 
   ],
   exports: [
