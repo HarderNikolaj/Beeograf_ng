@@ -8,7 +8,7 @@
   <div class="col-6">
     <h5>Gamle forestillinger:</h5>
     <div *ngFor="let ticket of old">
-      <app-ticket [ticket]="ticket" [canCancel]=false></app-ticket>
+      <app-ticket [ticket]="ticket" [canReview]=true></app-ticket>
     </div>
   </div>
 </div>

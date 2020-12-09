@@ -2,6 +2,9 @@
   <div class="col-sm-auto pl-0 d-flex align-items-stretch" *ngIf="canCancel">
     <button class="btn btn-danger" (click)="cancelReservation()">X</button>
   </div>
+  <div class="col-sm-auto pl-0 d-flex align-items-stretch" *ngIf="canReview">
+    <button class="btn btn-warning" (click)="rateMovie()">★</button>
+  </div>
   <div class="col-sm p-2">
     <h5 class="movieTitle">{{ticket.show.movie.title}}</h5>
     <p class="movieDetail">{{ticket.show.theater.name}}</p>

@@ -14,11 +14,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { SuccessDialogComponent } from './reservation/success-dialog/success-dialog.component';
+import { StarRatingModule } from 'angular-star-rating';
+import { RatingDialogComponent } from './my-tickets/rating-dialog/rating-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SuccessDialogComponent,
+    RatingDialogComponent,
     HeaderComponent
   ],
   imports: [
@@ -34,7 +37,8 @@ import { SuccessDialogComponent } from './reservation/success-dialog/success-dia
     }),
     HttpClientModule,
     NoopAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    StarRatingModule.forRoot()
   ],
   entryComponents: [
     SuccessDialogComponent
