@@ -9,6 +9,7 @@ import { Ticket } from 'src/app/models/ticket';
 import { BookingService } from 'src/app/services/booking.service';
 import { RatingService } from 'src/app/services/rating.service';
 import { environment } from 'src/environments/environment';
+import { RatingDialogComponent } from '../rating-dialog/rating-dialog.component';
 
 @Component({
   selector: 'app-ticket',
@@ -60,6 +61,14 @@ export class TicketComponent implements OnInit {
         ).add(
           () => {
             //open dialog here
+            let dialogRef = this.dialog.open(RatingDialogComponent, {data : {rating : rating}});
+            dialogRef.afterClosed().subscribe(
+              result => {
+                if (result){
+                  //how to determine whether to put or post?
+                }
+              }
+            );
           }
         );
       },

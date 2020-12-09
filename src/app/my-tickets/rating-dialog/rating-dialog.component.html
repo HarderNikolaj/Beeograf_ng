@@ -1,4 +1,8 @@
 <h2 mat-dialog-title>Rating</h2>
 <mat-dialog-content>
-  <star-rating [starType]="'svg'"></star-rating>
+  <star-rating [starType]="'svg'" [rating]="data.rating" (ratingChange)="onRatingChange($event)"></star-rating>
 </mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data.rating">Ok</button>
+  <button mat-button mat-dialog-close>Annuller</button>
+</mat-dialog-actions>

@@ -14,4 +14,7 @@ export class RatingDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onRatingChange(event){
+    this.data.rating = event.rating;
+  }
 }
