@@ -1,4 +1,7 @@
 <h4>{{movieTitle}}</h4>
+<div>
+  <star-rating [starType]="'svg'" [rating]="avgRating" [readOnly]="true"></star-rating>
+</div>
 <br>
 <h5>Vælg en visning</h5>
 <button (click)="onClick(show)" *ngFor="let show of shows" class="list-group-item list-group-item-action rounded">{{show.showTime | date:'dd MMM, HH:mm'}} - {{show.theater.name}}</button>
