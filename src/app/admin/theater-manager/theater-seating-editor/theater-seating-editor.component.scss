@@ -7,11 +7,12 @@ li{
   display: inline-table;
 }
 
-// .seatSelector{
-//   background-image: url("/assets/images/redCarpet.jpg");
-//   background-size: cover;
-
-// }
+.seatSelector{
+  // background-image: url("/assets/images/redCarpet.jpg");
+  // background-size: cover;
+  max-height: 75vh;
+  overflow: auto;
+}
 
 .seatsInRow{
   width: 70%;

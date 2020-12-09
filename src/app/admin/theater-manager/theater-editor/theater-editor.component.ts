@@ -62,8 +62,6 @@ export class TheaterEditorComponent implements OnInit {
         this.selectedTheater = new Theater();
       }
     );
-
-
    }
 
    editTheater(){

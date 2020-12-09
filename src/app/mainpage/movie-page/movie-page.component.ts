@@ -35,7 +35,7 @@ export class MoviePageComponent implements OnInit {
   }
 
   getMovies() : void{
-    this.movieService.getMovies().subscribe(
+    this.movieService.getMoviesWithGenres().subscribe(
       result => {
         result.forEach(element => {
           element.movie.genre = element.genre.name;

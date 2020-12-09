@@ -1,0 +1,25 @@
+<div class=" h-50">
+  <h3>Kommende Fremvisninger</h3>
+  <div class="overflow-auto list-group mt-3">
+      <button
+      *ngFor="let show of futureShows"
+      (click)="onClick(show)"
+      class="list-group-item list-group-item-action rounded">
+        {{show.showTime | date: 'medium'}}
+    </button>
+  </div>
+</div>
+
+<div>
+  <h3>Tidligere Fremvisninger</h3>
+  <div class="overflow-auto list-group mt-3 ">
+      <button
+      *ngFor="let show of pastShows"
+      (click)="onClick(show)"
+      class="list-group-item list-group-item-action rounded">
+        {{show.showTime | date: 'medium'}}
+    </button>
+  </div>
+
+</div>
+

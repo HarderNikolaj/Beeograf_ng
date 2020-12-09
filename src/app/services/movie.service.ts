@@ -12,7 +12,12 @@ import { Genre } from '../models/genre';
 export class MovieService {
   constructor(private http: HttpClient) { }
 
-  getMovies(): Observable<{movie: Movie, genre: Genre}[]>{
+getMovies() : Observable<Movie[]> {
+  return this.http.get<Movie[]>(environment.baseUrl + "movies");
+
+}
+
+  getMoviesWithGenres(): Observable<{movie: Movie, genre: Genre}[]>{
     return this.http.get<{movie, genre}[]>(environment.baseUrl + "movies/withgenre");
   }
 

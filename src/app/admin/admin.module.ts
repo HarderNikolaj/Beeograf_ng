@@ -15,6 +15,9 @@ import { TheaterSeatingEditorComponent } from './theater-manager/theater-seating
 import { ReservationModule } from '../reservation/reservation.module';
 import { SeatComponent } from '../reservation/seat/seat.component';
 import { TheaterSeatComponent } from './theater-manager/theater-seat/theater-seat.component';
+import { ShowingManagerComponent } from './showing-manager/showing-manager.component';
+import { ShowingEditorComponent } from './showing-manager/showing-editor/showing-editor.component';
+import { ShowingListComponent } from './showing-manager/showing-list/showing-list.component';
 
 
 @NgModule({
@@ -29,6 +32,9 @@ import { TheaterSeatComponent } from './theater-manager/theater-seat/theater-sea
     TheaterEditorComponent,
     TheaterSeatingEditorComponent,
     TheaterSeatComponent,
+    ShowingManagerComponent,
+    ShowingEditorComponent,
+    ShowingListComponent,
      ],
   imports: [
     CommonModule,

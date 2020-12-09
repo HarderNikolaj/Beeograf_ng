@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Movie } from '../models/movie';
 import { Seat } from '../models/seat';
+import { Show } from '../models/show';
 import { Theater } from '../models/theater';
 
 @Injectable({
@@ -10,7 +12,7 @@ export class EventService {
 
   constructor() { }
 
-  //#region reload MovieList
+  //#region reload
   private reloadRequestedBy = new Subject<any>()
 
   reloadRequested = this.reloadRequestedBy.asObservable();
@@ -18,6 +20,24 @@ export class EventService {
   requestReload(requester: any){
     this.reloadRequestedBy.next(requester)
   }
+//#endregion
+
+//#region select Movie
+private selectedMovie = new Subject<Movie>();
+movieSelected = this.selectedMovie.asObservable();
+selectMovie(movie: Movie){
+  this.selectedMovie.next(movie);
+}
+//#endregion
+
+//#region  select show
+private selectedShow = new Subject<Show>();
+showSelected = this.selectedShow.asObservable();
+selectShow(show: Show){
+  this.selectedShow.next(show);
+}
+
+
 //#endregion
 
 //#region select Theater

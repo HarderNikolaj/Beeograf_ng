@@ -28,7 +28,7 @@ export class MovieListComponent implements OnInit {
   }
   getMovies() : void{
     this.movies = [];
-    this.movieService.getMovies().subscribe(
+    this.movieService.getMoviesWithGenres().subscribe(
       result => {
         result.forEach(element => {
           element.movie.genre = element.genre.name;
@@ -41,6 +41,7 @@ export class MovieListComponent implements OnInit {
   }
 
   onClick(movie: Movie){
+    this.eventService.selectMovie(movie);
     this.movieSelectedEvent.emit(movie);
   }
 
