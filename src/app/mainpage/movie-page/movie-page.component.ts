@@ -48,9 +48,9 @@ export class MoviePageComponent implements OnInit {
   }
 
   onChanges():void{
-    this.movieForm.valueChanges.subscribe((value: {genre :string, title: string}) => {
+    this.movieForm.valueChanges.subscribe((value: {genre : Genre, title: string}) => {
       (value.title ?  value.title = value.title : value.title = "_all_");
-      ((value.genre && value.genre.toLocaleLowerCase() != "alle") ?  value.genre = value.genre : value.genre = "_all_");
+      ((value.genre && value.genre.name.toLocaleLowerCase() != "alle") ?  value.genre = value.genre : value.genre.name = "_all_");
       this.movies = [];
       this.movieService.getMoviesSearch(value).subscribe(
         result => {

@@ -21,8 +21,8 @@ getMovies() : Observable<Movie[]> {
     return this.http.get<{movie, genre}[]>(environment.baseUrl + "movies/withgenre");
   }
 
-  getMoviesSearch(search: {genre: string, title: string}): Observable<{movie: Movie, genre: Genre}[]>{
-    return this.http.get<{movie, genre}[]>(environment.baseUrl + "movies/withgenre/genretitle/" + search.genre + "/" + search.title);
+  getMoviesSearch(search: {genre: Genre, title: string}): Observable<{movie: Movie, genre: Genre}[]>{
+    return this.http.get<{movie, genre}[]>(environment.baseUrl + "movies/withgenre/genretitle/" + search.genre.name + "/" + search.title);
   }
 
   getMovieById(id: number): Observable<Movie>{

@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'movies', component: MovieManagerComponent},
   { path: 'theaters', component: TheaterManagerComponent},
   { path: 'shows', component: ShowingManagerComponent},
-  { path: '', redirectTo: 'movie'},
+  { path: '', redirectTo: 'movies'},
 
 ];
 
