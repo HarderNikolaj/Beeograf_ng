@@ -3,6 +3,6 @@
   <star-rating [starType]="'svg'" [rating]="rating" (ratingChange)="onRatingChange($event)"></star-rating>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button [mat-dialog-close]="rating">Ok</button>
+  <button mat-button [mat-dialog-close]="rating" [disabled]="rating < 1">Ok</button>
   <button mat-button mat-dialog-close>Annuller</button>
 </mat-dialog-actions>
