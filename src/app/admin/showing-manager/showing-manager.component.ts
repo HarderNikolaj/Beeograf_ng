@@ -9,7 +9,8 @@ import { MovieService } from 'src/app/services/movie.service';
   styleUrls: ['./showing-manager.component.scss']
 })
 export class ShowingManagerComponent implements OnInit {
-movies: Movie[] = [];
+  movies: Movie[] = [];
+  selectedMovie : Movie = new Movie();
   constructor(private movieService: MovieService, private eventServuce: EventService) { }
 
   ngOnInit(): void {
