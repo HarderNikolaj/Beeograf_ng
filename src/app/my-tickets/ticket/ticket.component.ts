@@ -55,7 +55,7 @@ export class TicketComponent implements OnInit {
               rating = new Rating();
               rating.userId = user.sub;
               rating.movieId = this.ticket.show.movieId;
-              rating.rating = 0;
+              rating.rating1 = 0;
             }
           }
         ).add(
@@ -65,9 +65,14 @@ export class TicketComponent implements OnInit {
             dialogRef.afterClosed().subscribe(
               result => {
                 if (result){
-                  //how to determine whether to put or post?
-                }
-              }
+                  rating.rating1 = result;
+                  let ratingArr : Rating[] = [rating];
+                  rating.id
+                    ? this.ratingService.putRatings(ratingArr).subscribe()
+                    : this.ratingService.postRatings(ratingArr).subscribe()
+                };
+              },
+              error => console.log(error)
             );
           }
         );

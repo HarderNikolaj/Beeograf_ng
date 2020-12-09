@@ -9,12 +9,16 @@ import { Rating } from 'src/app/models/rating';
 })
 export class RatingDialogComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {rating : Rating}) { }
+  rating : number;
+  constructor(@Inject(MAT_DIALOG_DATA) public data: {rating : Rating}) {
+      this.rating = data.rating.rating1;
+   }
 
   ngOnInit(): void {
   }
 
   onRatingChange(event){
-    this.data.rating = event.rating;
+    console.log(event);
+    this.rating = event.rating;
   }
 }
