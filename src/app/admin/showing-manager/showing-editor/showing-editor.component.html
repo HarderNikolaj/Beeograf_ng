@@ -1,0 +1,72 @@
+<h3 *ngIf="selectedShow.id; else elseblock">Rediger Fremvisning</h3>
+<ng-template #elseblock>
+  <h3>Opret Fremvisning</h3>
+</ng-template>
+
+
+<!-- <h3 *ngIf="selectedMovie.id; else elseBlock">Rediger Film</h3>
+<ng-template #elseBlock>
+  <h3 >Opret ny Film</h3>
+</ng-template>
+  <div class="row m-3">
+    <form #movieForm="ngForm" >
+      <div class="row">
+        <div class="col form-group">
+          <label>Id<input disabled class="form-control" type="text" name="id" id="id" [(ngModel)]="selectedMovie.id" ></label>
+        </div>
+        <div class="col form-group">
+          <label>Titel<input class="form-control" #title="ngModel" type="text" id="title" name="title" #titel="ngModel" [(ngModel)]="selectedMovie.title" required></label>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Genre<select class="form-control " name="genre" id="genre" #genre="ngModel" [(ngModel)]="selectedMovie.genreId" required>
+            <option *ngFor="let genre of genres" [value]="genre.id">{{genre.name}}</option>
+          </select></label>
+        </div>
+        <div class="col">
+          <label>Plakat<input class="form-control" type="string" name="moviePoster" [(ngModel)]="selectedMovie.moviePoster" required></label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Længde<input class="form-control" type="string" name="duration" [(ngModel)]="selectedMovie.duration"></label>
+        </div>
+        <div class="col">
+          <label>Udgivelses Dato<input class="form-control" type="date" name="releaseDate" [ngModel]="selectedMovie.releaseDate  | date:'yyyy-MM-dd'" (ngModelChange) = "selectedMovie.releaseDate = $event"></label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label>Aldersgrænse<input class="form-control" type="number" name="ageRating" [(ngModel)]="selectedMovie.ageRating"></label>
+        </div>
+        <div class="col"></div>
+      </div>
+      <div class="mt-3 row">
+          <button [attr.disabled]="!selectedMovie.id ? true : null" class="button btn btn-secondary ml-2" type="button" (click)="reset()">
+            Afbryd
+          </button >
+          <button *ngIf="selectedMovie.id" class="button btn btn-danger ml-2" (click)="deleteMovie()" type="button">
+            Slet Film
+          </button>
+          <button *ngIf="selectedMovie.id; else newMovie" class="button btn btn-primary ml-2" (click)="submitMovie()" [disabled]="!movieForm.form.valid" type="submit">
+            Gem ændringer
+          </button>
+          <ng-template #newMovie>
+            <button class="button btn btn-primary ml-2" (click)="submitNewMovie()" [disabled]="!movieForm.form.valid" type="submit">
+              Opret Film
+            </button>
+          </ng-template>
+      </div>
+      <div class="row mt-3">
+        <div *ngFor="let movie of resultSet" class="alert alert-success col alert-dismissible fade show" role="alert">
+          <p><strong>{{movie.title}}</strong> med Id <strong>{{movie.id}}</strong> blev {{lastAction}}</p>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+ -->

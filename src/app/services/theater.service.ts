@@ -16,12 +16,16 @@ export class TheaterService {
     return this.http.get<Theater[]>(environment.baseUrl + "theaters")
   }
 
+  postTheater(theater: Theater) : Observable<Theater> {
+    return this.http.post<Theater>(environment.baseUrl + "theaters", [theater])
+  }
+
   getTheatersWithSeats(): Observable<Theater[]> {
     return this.http.get<Theater[]>(environment.baseUrl + "theaters/seats")
   }
 
   deleteTheater(theater: Theater) : Observable<Theater[]> {
-    return this.http.delete<Theater[]>(environment.baseUrl + "theaters" + theater.id);
+    return this.http.delete<Theater[]>(environment.baseUrl + "theaters/" + theater.id);
   }
 
   putTheaterWithSeats(theater: Theater, seatsToBeDeleted: Seat[]) : Observable<Theater> {
