@@ -35,7 +35,7 @@ export class MoviePageComponent implements OnInit {
   }
 
   getMovies() : void{
-    this.movieService.getMoviesWithGenres().subscribe(
+    this.movieService.getMoviesWithUpcomingShows().subscribe(
       result => {
         result.forEach(element => {
           element.movie.genre = element.genre.name;
@@ -49,8 +49,12 @@ export class MoviePageComponent implements OnInit {
 
   onChanges():void{
     this.movieForm.valueChanges.subscribe((value: {genre : Genre, title: string}) => {
-      (value.title ?  value.title = value.title : value.title = "_all_");
-      ((value.genre && value.genre.name.toLocaleLowerCase() != "alle") ?  value.genre = value.genre : value.genre.name = "_all_");
+      (value.title
+        ?  value.title = value.title
+        : value.title = "_all_");
+      ((value.genre && value.genre.name.toLocaleLowerCase() != "alle")
+        ?  value.genre = value.genre
+        : value.genre.name = "_all_");
       this.movies = [];
       this.movieService.getMoviesSearch(value).subscribe(
         result => {
