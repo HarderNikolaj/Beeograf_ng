@@ -57,6 +57,12 @@ export class ShowSelectorComponent implements OnInit {
     console.log('average: ' + this.avgRating);
   }
 
+  isUpcoming(date : Date) : boolean{
+    let currentDate : Date = new Date();
+    if(new Date(date) >= currentDate) return true;
+    else return false;
+  }
+
   @Output() showSelectedEvent: EventEmitter<Show> = new EventEmitter<Show>();
 
 }
