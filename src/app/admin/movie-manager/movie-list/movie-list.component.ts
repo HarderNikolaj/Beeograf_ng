@@ -16,7 +16,6 @@ export class MovieListComponent implements OnInit {
   constructor(private movieService : MovieService, private eventService: EventService) {
     this.eventService.reloadRequested.subscribe(
       result => {
-        console.log("event emitted");
         this.getMovies();
       } ,
       error => console.log(error)

@@ -46,7 +46,7 @@ export class MyTicketsPageComponent implements OnInit {
       }
     }
 
-    console.log(this.old);
-    console.log(this.upcoming);
+    // console.log(this.old);
+    // console.log(this.upcoming);
   }
 }

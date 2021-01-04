@@ -22,9 +22,7 @@ export class UserService {
   updateUsers(users : User[]) : Observable<User[]>{
     return this.http.put<User[]>(environment.baseUrl + 'users/', users );
   }
-  // deleteUser(users: User[]) : Observable<User[]>{
-  //   return this.http.delete<User[]>(environment.baseUrl, {users});
-  // }
+
   deleteUser(user: User): Observable<User[]>{
     return this.http.delete<User[]>(environment.baseUrl + "users/stringid/" + user.id);
   }

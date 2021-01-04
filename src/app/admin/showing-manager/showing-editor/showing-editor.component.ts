@@ -36,7 +36,6 @@ export class ShowingEditorComponent implements OnInit {
   }
 
   editShow(){
-    console.log(this.selectedShow.showTime)
     this.showService.putShow(this.selectedShow).subscribe(
       result => this.reset()
     )

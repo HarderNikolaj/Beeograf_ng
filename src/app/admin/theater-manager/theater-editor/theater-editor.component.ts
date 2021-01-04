@@ -72,7 +72,6 @@ export class TheaterEditorComponent implements OnInit {
    }
 
    submitNewTheater(){
-     console.log(this.selectedTheater)
      this.theaterService.postTheater(this.selectedTheater).subscribe(
        result => {
          this.selectedTheater = result;

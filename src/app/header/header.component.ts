@@ -23,7 +23,6 @@ export class HeaderComponent implements OnInit {
   }
 
   checkUserIsAdmin(){
-    console.log('success');
 
     let token;
     let userId;
