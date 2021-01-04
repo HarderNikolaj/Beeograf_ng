@@ -18,6 +18,9 @@ import { TheaterSeatComponent } from './theater-manager/theater-seat/theater-sea
 import { ShowingManagerComponent } from './showing-manager/showing-manager.component';
 import { ShowingEditorComponent } from './showing-manager/showing-editor/showing-editor.component';
 import { ShowingListComponent } from './showing-manager/showing-list/showing-list.component';
+import { UserManagerComponent } from './user-manager/user-manager.component';
+import { UserListComponent } from './user-manager/user-list/user-list.component';
+import { UserEditorComponent } from './user-manager/user-editor/user-editor.component';
 
 
 @NgModule({
@@ -35,6 +38,9 @@ import { ShowingListComponent } from './showing-manager/showing-list/showing-lis
     ShowingManagerComponent,
     ShowingEditorComponent,
     ShowingListComponent,
+    UserManagerComponent,
+    UserListComponent,
+    UserEditorComponent,
      ],
   imports: [
     CommonModule,

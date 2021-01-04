@@ -4,6 +4,7 @@ import { Movie } from '../models/movie';
 import { Seat } from '../models/seat';
 import { Show } from '../models/show';
 import { Theater } from '../models/theater';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -47,6 +48,17 @@ theaterSelected = this.selectedTheater.asObservable();
 
 selectTheater(theater: Theater){
   this.selectedTheater.next(theater)
+}
+
+//#endregion
+
+//#region select User
+private selectedUser = new Subject<User>()
+
+userSelected = this.selectedUser.asObservable();
+
+selectUser(user: User){
+  this.selectedUser.next(user)
 }
 
 //#endregion

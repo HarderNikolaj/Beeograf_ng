@@ -1,0 +1,44 @@
+<h3 *ngIf="selectedUser.id; else elseBlock">Rediger Bruger</h3>
+<ng-template #elseBlock>
+  <h3 >Vælg en bruger fra listen</h3>
+</ng-template>
+  <div class="row m-3">
+    <form #userForm="ngForm" >
+      <div class="row">
+        <div class="col form-group">
+          <label>Id<input disabled class="form-control" type="text" name="id" id="id" [(ngModel)]="selectedUser.id" ></label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col form-group">
+          <label>Fornavn<input [disabled]="selectedUser.id == null" class="form-control" #firstname="ngModel" type="text" id="firstname" name="firstname" #titel="ngModel" [(ngModel)]="selectedUser.firstname" required></label>
+        </div>
+        <div class="col form-group">
+          <label>Efternavn<input [disabled]="selectedUser.id == null" class="form-control" #lastname="ngModel" type="text" id="lastname" name="lastname" #titel="ngModel" [(ngModel)]="selectedUser.lastname" required></label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col form-group">
+          <label>Fødselsdag<input [disabled]="selectedUser.id == null" class="form-control" type="date" name="birthdate" [ngModel]="selectedUser.birthdate | date:'yyyy-MM-dd'"(ngModelChange) = "selectedUser.birthdate = $event" required></label>
+        </div>
+        <div class="col form-group">
+          <label>Bonus Point<input [disabled]="selectedUser.id == null" class="form-control" type="number" name="bonuspoints" [(ngModel)]="selectedUser.bonusPoints"></label>
+        </div>
+    </div>
+
+
+      <div class="mt-3 row">
+          <button [attr.disabled]="!selectedUser.id ? true : null" class="button btn btn-secondary ml-2" type="button" (click)="reset()">
+            Afbryd
+          </button >
+          <button *ngIf="selectedUser.id" class="button btn btn-danger ml-2" (click)="deleteUser()" type="button">
+            Slet Bruger
+          </button>
+          <button *ngIf="selectedUser.id;" class="button btn btn-primary ml-2" (click)="editUser()" [disabled]="!userForm.form.valid" type="submit">
+            Gem ændringer
+          </button>
+
+      </div>
+    </form>
+  </div>
+

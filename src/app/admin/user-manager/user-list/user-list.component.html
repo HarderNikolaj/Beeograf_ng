@@ -1,0 +1,4 @@
+<h3>Vælg Bruger</h3>
+<div class="overflow-auto list-group mt-3 max-h-65">
+    <button (click)="onClick(user)" *ngFor="let user of users" class="list-group-item list-group-item-action rounded">{{user.lastname}}, {{user.firstname}} - {{user.email}}</button>
+</div>
