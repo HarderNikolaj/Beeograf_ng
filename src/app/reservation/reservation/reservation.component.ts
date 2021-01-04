@@ -16,7 +16,7 @@ export class ReservationComponent implements OnInit {
 
   movieId : string;
   selectedShow : Show = new Show();
-  seatsArray : { id : number, seat : number, taken : reservationStatus }[][] = [];
+  seatsArray : Seat[][] = [];
   seatsModel : TheaterSeats = new TheaterSeats();
 
   constructor(private route : ActivatedRoute, private service : ShowService) { }

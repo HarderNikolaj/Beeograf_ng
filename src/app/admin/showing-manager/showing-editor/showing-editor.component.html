@@ -1,8 +1,58 @@
-<h3 *ngIf="selectedShow.id; else elseblock">Rediger Fremvisning</h3>
-<ng-template #elseblock>
-  <h3>Opret Fremvisning</h3>
-</ng-template>
+<h3 *ngIf="!selectedMovie.id; else MovieSelectedBlock">
+  Vælg en film fra listen
+</h3>
+<ng-template  #MovieSelectedBlock>
+  <h3 *ngIf="selectedShow.id; else elseblock">Rediger Fremvisning</h3>
+  <ng-template #elseblock>
+    <h3>Opret Fremvisning</h3>
+  </ng-template>
 
+
+<div class="row m-1">
+  <form #showForm="ngForm">
+    <div class="row">
+      <div class="col form-group">
+        <label>Id<input disabled class="form-control" type="text" name="id" id="id" [(ngModel)]="selectedShow.id" ></label>
+      </div>
+      <div class="col form-group">
+        <label>Movie<input disabled class="form-control" #movie="ngModel" type="text" id="movie" name="movie"[(ngModel)]="selectedMovie.title"></label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col form-group">
+        <label>Sal
+          <select class="form-control" required  name="theater" #theater="ngModel" [(ngModel)]="selectedShow.theaterId">
+            <option [ngValue]="theater.id"  *ngFor="let theater of theaters">
+              {{ theater.name }}
+            </option>
+          </select>
+        </label>
+      </div>
+      <div class="col form-group">
+        <label>Dato<input class="form-control" required #showDate="ngModel" [(ngModel)]="selectedShow.showTime" id="showDate" name="showDate" type="datetime-local"> </label>
+      </div>
+    </div>
+
+    <div class="mt-3 row">
+      <button [attr.disabled]="!selectedShow.id ? true : null" class="button btn btn-secondary ml-2" type="button" (click)="reset()">
+        Afbryd
+      </button >
+      <button *ngIf="selectedShow.id" class="button btn btn-danger ml-2" (click)="deleteShow()" type="button">
+        Slet Fremvisning
+      </button>
+      <button *ngIf="selectedShow.id; else newTheater" class="button btn btn-primary ml-2" (click)="editShow()" [disabled]="!showForm.form.valid" type="submit">
+        Gem ændringer
+      </button>
+      <ng-template #newTheater>
+        <button class="button btn btn-primary ml-2" (click)="submitShow()" [disabled]="!showForm.form.valid" type="submit">
+          Opret Fremvisning
+        </button>
+      </ng-template>
+  </div>
+
+  </form>
+</div>
+</ng-template>
 
 <!-- <h3 *ngIf="selectedMovie.id; else elseBlock">Rediger Film</h3>
 <ng-template #elseBlock>

@@ -1,4 +1,4 @@
-<div class=" h-50">
+<div class=" h-40 mb-3">
   <h3>Kommende Fremvisninger</h3>
   <div class="overflow-auto list-group mt-3">
       <button
@@ -16,6 +16,7 @@
       <button
       *ngFor="let show of pastShows"
       (click)="onClick(show)"
+      disabled
       class="list-group-item list-group-item-action rounded">
         {{show.showTime | date: 'medium'}}
     </button>

@@ -5,6 +5,7 @@ export class Show{
   id : number;
   movieId : number;
   movie : Movie = new Movie();
-  theater : Theater = new Theater();
+  theaterId? : number;
+  theater? : Theater = new Theater();
   showTime : Date;
 }

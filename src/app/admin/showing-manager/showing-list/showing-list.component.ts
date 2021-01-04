@@ -33,8 +33,9 @@ export class ShowingListComponent implements OnInit {
     this.futureShows = [];
     this.pastShows = [];
     shows.forEach(show => {
-      if(show.showTime >= now) this.futureShows.push(show);
-      else this.futureShows.push(show);
+      let showtime = new Date(show.showTime)
+      if(showtime > now) this.futureShows.push(show);
+      else this.pastShows.push(show);
     });
   }
 
