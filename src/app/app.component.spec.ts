@@ -1,15 +1,24 @@
+import { Component } from '@angular/core';
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  @Component({
+    selector: 'app-header',
+    template: "<div></div>",
+  })
+  class FakeHeaderCompnent {
+  }
+
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule
       ],
       declarations: [
-        AppComponent
+        AppComponent, FakeHeaderCompnent
       ],
     }).compileComponents();
   }));
@@ -26,10 +35,5 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('beeograf');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('beeograf app is running!');
-  });
+
 });

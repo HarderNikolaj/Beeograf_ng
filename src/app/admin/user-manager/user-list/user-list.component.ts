@@ -12,22 +12,21 @@ export class UserListComponent implements OnInit {
   users: User[] = [];
 
   constructor(private userService: UserService, private eventService: EventService) {
-    this.eventService.reloadRequested.subscribe(
-      result => this.getUsers()
-     )
+
    }
 
   ngOnInit(): void {
     this.getUsers();
+    this.eventService.reloadRequested.subscribe(
+      result => this.getUsers()
+     )
   }
 
   getUsers() : void{
     this.users = [];
     this.userService.getUsers().subscribe(
       result => {
-        result.forEach(user => {
-          this.users.push(user);
-        });
+        this.users = result;
       },
       error => console.log(error)
     );

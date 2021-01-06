@@ -11,11 +11,12 @@ import { UserService } from 'src/app/services/user.service';
 export class UserEditorComponent implements OnInit {
   selectedUser: User = new User();
   constructor(private userService: UserService, private eventService: EventService) {
-    this.eventService.userSelected.subscribe(user =>
-      this.selectedUser = user);
+
    }
 
   ngOnInit(): void {
+    this.eventService.userSelected.subscribe(user =>
+      this.selectedUser = user);
   }
 
   deleteUser(){
