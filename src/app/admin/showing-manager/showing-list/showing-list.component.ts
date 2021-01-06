@@ -21,11 +21,20 @@ export class ShowingListComponent implements OnInit {
         this.showService.getShowsForMovie(result.id).subscribe(
           result => this.orderShows(result)
         )
-      }
-      )
+      })
+
+      this.eventService.reloadRequested.subscribe(
+        result => {
+          this.showService.getShowsForMovie(this.selectedMovie.id).subscribe(
+            result => this.orderShows(result)
+          )
+      })
    }
 
   ngOnInit(): void {
+
+
+
   }
 
   orderShows(shows: Show[]) : void{

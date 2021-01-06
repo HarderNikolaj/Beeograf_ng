@@ -22,7 +22,10 @@ export class ShowingEditorComponent implements OnInit {
 
   ngOnInit(): void {
     this.theaterService.getTheaters().subscribe(
-      result => this.theaters = result
+      result => {
+        this.theaters = result;
+        console.log(this.theaters[0]);
+      }
     )
   }
 
@@ -50,6 +53,7 @@ export class ShowingEditorComponent implements OnInit {
   reset(){
     this.selectedShow = new Show();
     this.eventService.selectShow(this.selectedShow);
+    this.eventService.requestReload(null);
   }
 
 }

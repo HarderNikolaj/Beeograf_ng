@@ -1,3 +1,4 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Genre } from 'src/app/models/genre';
@@ -48,11 +49,13 @@ export class MoviePageComponent implements OnInit {
   }
 
   onChanges():void{
+
     this.movieForm.valueChanges.subscribe((value: {genre : Genre, title: string}) => {
+      if(value.genre.name == undefined) value.genre = new Genre();
       (value.title
         ?  value.title = value.title
         : value.title = "_all_");
-      ((value.genre && value.genre.name.toLocaleLowerCase() != "alle")
+      ((value.genre && value.genre.name != undefined)
         ?  value.genre = value.genre
         : value.genre.name = "_all_");
       this.movies = [];

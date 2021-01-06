@@ -79,9 +79,9 @@ export class TheaterEditorComponent implements OnInit {
          this.selectedTheater = result;
          this.selectedTheater.seats = [];
          this.eventService.selectTheater(this.selectedTheater)
+         this.eventService.requestReload(null);
        }
      )
-     this.eventService.requestReload(null);
    }
 
    reset(): void{
