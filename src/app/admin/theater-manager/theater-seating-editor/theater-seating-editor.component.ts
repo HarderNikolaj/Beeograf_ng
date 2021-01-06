@@ -32,9 +32,12 @@ export class TheaterSeatingEditorComponent implements OnInit {
 
   seatsToRows(theater: Theater) : Seat[][] {
     let rowsArray : Seat[][] = [];
-    theater.seats.forEach(seat => {
-      (rowsArray[seat.row-1]) ? rowsArray[seat.row-1].push(seat) : rowsArray[seat.row-1] = [seat];
-    });
+    if(theater.seats){
+      theater.seats.forEach(seat => {
+        (rowsArray[seat.row-1]) ? rowsArray[seat.row-1].push(seat) : rowsArray[seat.row-1] = [seat];
+      });
+
+    }
      return rowsArray;
    }
 

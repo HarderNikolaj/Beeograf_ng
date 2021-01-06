@@ -48,10 +48,12 @@ export class TheaterEditorComponent implements OnInit {
 
    seatsToArray(theater: Theater) : Theater {
     let rowsArray : number[] = [];
-    theater.seats.forEach(element => {
-      (rowsArray[element.row-1]) ? rowsArray[element.row-1] +1 : rowsArray[element.row-1] = 1;
-    });
-    theater.rowsArray = rowsArray;
+    if(theater.seats){
+      theater.seats.forEach(element => {
+        (rowsArray[element.row-1]) ? rowsArray[element.row-1] +1 : rowsArray[element.row-1] = 1;
+      });
+      theater.rowsArray = rowsArray;
+    }
     return theater;
    }
 
